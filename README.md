@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Draskint
+
+Landing page para empresa de desarrollo web.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estándar de Commits
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Este proyecto usa **Husky** y **CommitLint** para enforces un estándar de commits.
 
-## Learn More
+### Formato de Commits
 
-To learn more about Next.js, take a look at the following resources:
+```
+<tipo>(<alcance>): <descripción>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[ cuerpo opcional ]
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+[ pies opcional ]
+```
 
-## Deploy on Vercel
+### Tipos de Commit
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Tipo | Descripción |
+|------|-------------|
+| `feat` | Nueva funcionalidad |
+| `fix` | Corrección de bug |
+| `docs` | Documentación |
+| `style` | Estilo (formateo, punto y coma, etc) |
+| `refactor` | Refactorización de código |
+| `perf` | Mejora de rendimiento |
+| `test` | Tests |
+| `build` | Build |
+| `ci` | CI/CD |
+| `chore` | Tareas de mantenimiento |
+| `revert` | Revertir commit |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Ejemplos
+
+```bash
+# Nueva funcionalidad
+git commit -m "feat(hero): agregar animación de entrada"
+
+# Corrección de bug
+git commit -m "fix(form): corregir validación de email"
+
+# Documentación
+git commit -m "docs(readme): actualizar instrucciones de instalación"
+
+# Refactorización
+git commit -m "refactor(components): extraer utils compartido"
+```
+
+### Reglas
+
+- El **tipo** es obligatorio y debe ser uno de los listados arriba
+- La **descripción** es obligatoria y no puede estar vacía
+- Máxima longitud del header: **72 caracteres**
+- Usar tiempo verbal imperativo ("agregar" no "agregado")
+- El alcance (scope) es opcional
+
+### Validación
+
+Los commits son validados automáticamente al hacer `git commit`. Si el commit no cumple el estándar, recibirá un error y deberá corregirlo.
+
+```bash
+# Incorrecto
+git commit -m "agrego feature nueva"
+
+# Correcto
+git commit -m "feat(auth): agregar login con Google"
+```
